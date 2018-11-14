@@ -504,7 +504,7 @@ void MyOriginalCoinApplication::initializeResult(bool success)
 
 #ifdef ENABLE_WALLET
         // Now that initialization/startup is done, process any command-line
-        // bitcoin: URIs or payment requests:
+        // myoriginalcoin: URIs or payment requests:
         connect(paymentServer, &PaymentServer::receivedPaymentRequest, window, &MyOriginalCoinGUI::handlePaymentRequest);
         connect(window, &MyOriginalCoinGUI::receivedURI, paymentServer, &PaymentServer::handleURIOrFile);
         connect(paymentServer, &PaymentServer::message, [this](const QString& title, const QString& message, unsigned int style) {
@@ -680,7 +680,7 @@ int main(int argc, char *argv[])
         exit(EXIT_SUCCESS);
 
     // Start up the payment server early, too, so impatient users that click on
-    // bitcoin: links repeatedly have their payment requests routed to this process:
+    // myoriginalcoin: links repeatedly have their payment requests routed to this process:
     app.createPaymentServer();
 #endif
 

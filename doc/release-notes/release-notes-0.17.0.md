@@ -568,7 +568,7 @@ Support for Python 2 has been discontinued for all test files and tools.
 - #12080 `56cc022` Add support to search the address book (promag)
 - #12621 `2bac3e4` Avoid querying unnecessary model data when filtering transactions (promag)
 - #12721 `e476826` remove "new" button during receive-mode in addressbook (jonasschnelli)
-- #12723 `310dc61` Qt5: Warning users about invalid-BIP21 URI bitcoin:// (krab)
+- #12723 `310dc61` Qt5: Warning users about invalid-BIP21 URI myoriginalcoin:// (krab)
 - #12610 `25cf18f` Multiwallet for the GUI (jonasschnelli)
 - #12779 `f4353da` Remove unused method setupAmountWidget(…) (practicalswift)
 - #12795 `68484d6` do not truncate .dat extension for wallets in gui (instagibbs)

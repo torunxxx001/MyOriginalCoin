@@ -434,8 +434,8 @@
         <translation>Lišta záložiek</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Vyžiadať platby (vygeneruje QR kódy a bitcoin: URI)</translation>
+        <source>Request payments (generates QR codes and myoriginalcoin: URIs)</source>
+        <translation>Vyžiadať platby (vygeneruje QR kódy a myoriginalcoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -446,7 +446,7 @@
         <translation>Zobraziť zoznam použitých prijímacích adries a ich popisov</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a myoriginalcoin: URI or payment request</source>
         <translation>Otvoriť bitcoin URI alebo výzvu k platbe</translation>
     </message>
     <message>
@@ -1308,7 +1308,7 @@
         <translation>Chyba pri vyžiadaní platby</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <source>Cannot start myoriginalcoin: click-to-pay handler</source>
         <translation>Nemôžeme spustiť MyOriginalCoin: obsluha click-to-pay</translation>
     </message>
     <message>
@@ -1316,8 +1316,8 @@
         <translation>URI manipulácia</translation>
     </message>
     <message>
-        <source>'bitcoin://' is not a valid URI. Use 'bitcoin:' instead.</source>
-        <translation>'bitcoin://' je neplatná URI. Použite 'bitcoin:'</translation>
+        <source>'myoriginalcoin://' is not a valid URI. Use 'myoriginalcoin:' instead.</source>
+        <translation>'myoriginalcoin://' je neplatná URI. Použite 'myoriginalcoin:'</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -2375,8 +2375,8 @@
         <translation>Vložte popis pre túto adresu aby sa uložila do zoznamu použitých adries</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the MyOriginalCoin network.</source>
-        <translation>Správa ktorá bola pripojená k bitcoin: URI a ktorá bude uložená s transakcou pre Vaše potreby. Poznámka: Táto správa nebude poslaná cez sieť MyOriginalCoin.</translation>
+        <source>A message that was attached to the myoriginalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the MyOriginalCoin network.</source>
+        <translation>Správa ktorá bola pripojená k myoriginalcoin: URI a ktorá bude uložená s transakcou pre Vaše potreby. Poznámka: Táto správa nebude poslaná cez sieť MyOriginalCoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>

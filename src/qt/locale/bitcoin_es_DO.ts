@@ -326,7 +326,7 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and myoriginalcoin: URIs)</source>
         <translation>Solicitar pagos (genera codigo QR y URL's de MyOriginalCoin)</translation>
     </message>
     <message>
@@ -338,8 +338,8 @@
         <translation>Muestra la lista de direcciones de recepción y etiquetas</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Abrir un bitcoin: URI o petición de pago</translation>
+        <source>Open a myoriginalcoin: URI or payment request</source>
+        <translation>Abrir un myoriginalcoin: URI o petición de pago</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>

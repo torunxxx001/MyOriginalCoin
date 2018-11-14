@@ -104,11 +104,11 @@ attacks were fixed.
 
 NOT YET IMPLEMENTED FEATURES
 
-Support for clicking on bitcoin: URIs and
+Support for clicking on myoriginalcoin: URIs and
 opening/launching MyOriginalCoin-Qt is available only on Linux,
 and only if you configure your desktop to launch
 MyOriginalCoin-Qt. All platforms support dragging and dropping
-bitcoin: URIs onto the MyOriginalCoin-Qt window to start
+myoriginalcoin: URIs onto the MyOriginalCoin-Qt window to start
 payment.
 
 

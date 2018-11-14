@@ -75,7 +75,7 @@ Dependency changes
 Bug fixes
 ---------
 
-* Clicking on a bitcoin: URI on Windows should now launch MyOriginalCoin-Qt properly.
+* Clicking on a myoriginalcoin: URI on Windows should now launch MyOriginalCoin-Qt properly.
 
 * When running -testnet, use RPC port 18332 by default.
 
