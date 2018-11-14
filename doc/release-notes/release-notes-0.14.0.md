@@ -1,4 +1,4 @@
-Bitcoin Core version 0.14.0 is now available from:
+MyOriginalCoin Core version 0.14.0 is now available from:
 
   <https://bitcoin.org/bin/bitcoin-core-0.14.0/>
 
@@ -7,16 +7,16 @@ and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/bitcoin/bitcoin/issues>
+  <https://github.com/torunxxx001/MyOriginalCoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://bitcoincore.org/en/list/announcements/join/>
+  <https://github.com/torunxxx001/en/list/announcements/join/>
 
 Compatibility
 ==============
 
-Bitcoin Core is extensively tested on multiple operating systems using
+MyOriginalCoin Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later.
 
 Microsoft ended support for Windows XP on [April 8th, 2014](https://www.microsoft.com/en-us/WindowsForBusiness/end-of-xp-support),
@@ -24,7 +24,7 @@ No attempt is made to prevent installing or running the software on Windows XP, 
 can still do so at your own risk but be aware that there are known instabilities and issues.
 Please do not report issues about Windows XP to the issue tracker.
 
-Bitcoin Core should also work on most other Unix-like systems but is not
+MyOriginalCoin Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 Notable changes
@@ -55,7 +55,7 @@ improved, leading to much shorter sync and initial block download times.
 Manual Pruning
 --------------
 
-Bitcoin Core has supported automatically pruning the blockchain since 0.11. Pruning
+MyOriginalCoin Core has supported automatically pruning the blockchain since 0.11. Pruning
 the blockchain allows for significant storage space savings as the vast majority of
 the downloaded data can be discarded after processing so very little of it remains
 on the disk.
@@ -96,7 +96,7 @@ ZMQ On Windows
 
 Previously the ZeroMQ notification system was unavailable on Windows
 due to various issues with ZMQ. These have been fixed upstream and
-now ZMQ can be used on Windows. Please see [this document](https://github.com/bitcoin/bitcoin/blob/master/doc/zmq.md) for
+now ZMQ can be used on Windows. Please see [this document](https://github.com/torunxxx001/MyOriginalCoin/blob/master/doc/zmq.md) for
 help with using ZMQ in general.
 
 Nested RPC Commands in Debug Console
@@ -129,7 +129,7 @@ the same thing as the GUI icon. The command takes one boolean parameter,
 Out-of-sync Modal Info Layer
 ----------------------------
 
-When Bitcoin Core is out-of-sync on startup, a semi-transparent information
+When MyOriginalCoin Core is out-of-sync on startup, a semi-transparent information
 layer will be shown over top of the normal display. This layer contains
 details about the current sync progress and estimates the amount of time
 remaining to finish syncing. This layer can also be hidden and subsequently
@@ -138,19 +138,19 @@ unhidden by clicking on the progress bar at the bottom of the window.
 Support for JSON-RPC Named Arguments
 ------------------------------------
 
-Commands sent over the JSON-RPC interface and through the `bitcoin-cli` binary
+Commands sent over the JSON-RPC interface and through the `myoriginalcoin-cli` binary
 can now use named arguments. This follows the [JSON-RPC specification](http://www.jsonrpc.org/specification)
 for passing parameters by-name with an object.
 
-`bitcoin-cli` has been updated to support this by parsing `name=value` arguments
+`myoriginalcoin-cli` has been updated to support this by parsing `name=value` arguments
 when the `-named` option is given.
 
 Some examples:
 
-    src/bitcoin-cli -named help command="help"
-    src/bitcoin-cli -named getblockhash height=0
-    src/bitcoin-cli -named getblock blockhash=000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
-    src/bitcoin-cli -named sendtoaddress address="(snip)" amount="1.0" subtractfeefromamount=true
+    src/myoriginalcoin-cli -named help command="help"
+    src/myoriginalcoin-cli -named getblockhash height=0
+    src/myoriginalcoin-cli -named getblock blockhash=000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+    src/myoriginalcoin-cli -named sendtoaddress address="(snip)" amount="1.0" subtractfeefromamount=true
 
 The order of arguments doesn't matter in this case. Named arguments are also
 useful to leave out arguments that should stay at their default value. The
@@ -189,7 +189,7 @@ commands such as `prioritisetransaction` so that those changes will not be lost.
 Final Alert
 -----------
 
-The Alert System was [disabled and deprecated](https://bitcoin.org/en/alert/2016-11-01-alert-retirement) in Bitcoin Core 0.12.1 and removed in 0.13.0. 
+The Alert System was [disabled and deprecated](https://bitcoin.org/en/alert/2016-11-01-alert-retirement) in MyOriginalCoin Core 0.12.1 and removed in 0.13.0. 
 The Alert System was retired with a maximum sequence final alert which causes any nodes
 supporting the Alert System to display a static hard-coded "Alert Key Compromised" message which also
 prevents any other alerts from overriding it. This final alert is hard-coded into this release
@@ -241,8 +241,8 @@ Low-level RPC changes
    the mempool or if `txindex` is enabled.
 
  - A new RPC command `getmemoryinfo` has been added which will return information
-   about the memory usage of Bitcoin Core. This was added in conjunction with
-   optimizations to memory management. See [Pull #8753](https://github.com/bitcoin/bitcoin/pull/8753)
+   about the memory usage of MyOriginalCoin Core. This was added in conjunction with
+   optimizations to memory management. See [Pull #8753](https://github.com/torunxxx001/MyOriginalCoin/pull/8753)
    for more information.
 
  - A new RPC command `bumpfee` has been added which allows replacing an
@@ -367,7 +367,7 @@ and git merge commit are mentioned.
 - #8421 `b77bb95` httpserver: drop boost dependency (theuni)
 - #8638 `f061415` rest.cpp: change `HTTP_INTERNAL_SERVER_ERROR` to `HTTP_BAD_REQUEST` (djpnewton)
 - #8272 `91990ee` Make the dummy argument to getaddednodeinfo optional (sipa)
-- #8722 `bb843ad` bitcoin-cli: More detailed error reporting (laanwj)
+- #8722 `bb843ad` myoriginalcoin-cli: More detailed error reporting (laanwj)
 - #6996 `7f71a3c` Add preciousblock RPC (sipa)
 - #8788 `97c7f73` Give RPC commands more information about the RPC request (jonasschnelli)
 - #7948 `5d2c8e5` Augment getblockchaininfo bip9\_softforks data (mruddy)
@@ -402,7 +402,7 @@ and git merge commit are mentioned.
 - #9133 `434e683` Unset fImporting for loading mempool (morcos)
 - #9179 `b9a87b4` Set `DEFAULT_LIMITFREERELAY` = 0 kB/minute (MarcoFalke)
 - #9239 `3fbf079` Disable fee estimates for 1-block target (morcos)
-- #7562 `1eef038` Bump transaction version default to 2 (btcdrak)
+- #7562 `1eef038` Bump transaction version default to 2 (morgcdrak)
 - #9313,#9367 If we don't allow free txs, always send a fee filter (morcos)
 - #9346 `b99a093` Batch construct batches (sipa)
 - #9262 `5a70572` Prefer coins that have fewer ancestors, sanity check txn before ATMP (instagibbs)
@@ -504,7 +504,7 @@ and git merge commit are mentioned.
 - #8604 `f256843` build,doc: Update for 0.13.0+ and OpenBSD 5.9 (laanwj)
 - #8640 `2663e51` depends: Remove Qt46 package (fanquake)
 - #8645 `8ea4440` Remove unused Qt 4.6 patch (droark)
-- #8608 `7e9ab95` Install manpages via make install, also add some autogenerated manpages (nomnombtc)
+- #8608 `7e9ab95` Install manpages via make install, also add some autogenerated manpages (nomnommorgc)
 - #8781 `ca69ef4` contrib: delete `qt_translations.py` (MarcoFalke)
 - #8783 `64dc645` share: remove qt/protobuf.pri (MarcoFalke)
 - #8423 `3166dff` depends: expat 2.2.0, ccache 3.3.1, fontconfig 2.12.1 (fanquake)
@@ -514,7 +514,7 @@ and git merge commit are mentioned.
 - #8819 `c841816` depends: Boost 1.61.0 (fanquake)
 - #8826 `f560d95` Do not include `env_win.cc` on non-Windows systems (paveljanik)
 - #8948 `e077e00` Reorder Windows gitian build order to match Linux (Michagogo)
-- #8568 `078900d` new var `DIST_CONTRIB` adds useful things for packagers from contrib (nomnombtc)
+- #8568 `078900d` new var `DIST_CONTRIB` adds useful things for packagers from contrib (nomnommorgc)
 - #9114 `21e6c6b` depends: Set `OSX_MIN_VERSION` to 10.8 (fanquake)
 - #9140 `018a4eb` Bugfix: Correctly replace generated headers and fail cleanly (luke-jr)
 - #9156 `a8b2a82` Add compile and link options echo to configure (jonasschnelli)
@@ -640,7 +640,7 @@ and git merge commit are mentioned.
 - #9049 `71bc39e` Remove duplicatable duplicate-input check from CheckTransaction (TheBlueMatt)
 - #9136 `b422913` sync\_blocks cleanup (ryanofsky)
 - #9151 `4333b1c` proxy\_test: Calculate hardcoded port numbers (MarcoFalke)
-- #9206 `e662d28` Make test constant consistent with consensus.h (btcdrak)
+- #9206 `e662d28` Make test constant consistent with consensus.h (morgcdrak)
 - #9139 `0de7fd3` Change sync\_blocks to pick smarter maxheight (on top of #9196) (ryanofsky)
 - #9100 `97ec6e5` tx\_valid: re-order inputs to how they are encoded (dcousens)
 - #9202 `e56cf67` bench: Add support for measuring CPU cycles (laanwj)
@@ -718,18 +718,18 @@ and git merge commit are mentioned.
 - #8291 `5cac8b1` util: CopyrightHolders: Check for untranslated substitution (MarcoFalke)
 - #8557 `44691f3` contrib: Rework verifybinaries (MarcoFalke)
 - #8621 `e8ed6eb` contrib: python: Don't use shell=True (MarcoFalke)
-- #8813 `fb24d7e` bitcoind: Daemonize using daemon(3) (laanwj)
+- #8813 `fb24d7e` myoriginalcoind: Daemonize using daemon(3) (laanwj)
 - #9004 `67728a3` Clarify `listenonion` (unsystemizer)
 - #8674 `bae81b8` tools for analyzing, updating and adding copyright headers in source files (isle2983)
 - #8976 `8c6218a` libconsensus: Add input validation of flags (laanwj)
 - #9112 `46027e8` Avoid ugly exception in log on unknown inv type (laanwj)
-- #8837 `2108911` Allow bitcoin-tx to parse partial transactions (jnewbery)
+- #8837 `2108911` Allow myoriginalcoin-tx to parse partial transactions (jnewbery)
 - #9204 `74ced54` Clarify CreateTransaction error messages (instagibbs)
-- #9265 `31bcc66` bitcoin-cli: Make error message less confusing (laanwj)
+- #9265 `31bcc66` myoriginalcoin-cli: Make error message less confusing (laanwj)
 - #9303 `72bf1b3` Update comments in ctaes (sipa)
 - #9417 `c4b7d4f` Do not evaluate hidden LogPrint arguments (sipa)
 - #9506 `593a00c` RFC: Improve style for if indentation (sipa)
-- #8883 `d5d4ad8` Add all standard TXO types to bitcoin-tx (jnewbery)
+- #8883 `d5d4ad8` Add all standard TXO types to myoriginalcoin-tx (jnewbery)
 - #9531 `23281a4` Release notes for estimation changes  (morcos)
 - #9486 `f62bc10` Make peer=%d log prints consistent (TheBlueMatt)
 - #9552 `41cb05c` Add IPv6 support to qos.sh (jamesmacwhite)
@@ -841,7 +841,7 @@ Thanks to everyone who directly contributed to this release:
 - mrbandrews
 - mruddy
 - Nicolas DORIER
-- nomnombtc
+- nomnommorgc
 - Patrick Strateman
 - Pavel Janík
 - Pedro Branco

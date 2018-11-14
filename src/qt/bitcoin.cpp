@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2018 The Bitcoin Core developers
+// Copyright (c) 2011-2018 The MyOriginalCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -145,14 +145,14 @@ void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, cons
     }
 }
 
-/** Class encapsulating Bitcoin Core startup and shutdown.
+/** Class encapsulating MyOriginalCoin Core startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
-class BitcoinCore: public QObject
+class MyOriginalCoinCore: public QObject
 {
     Q_OBJECT
 public:
-    explicit BitcoinCore(interfaces::Node& node);
+    explicit MyOriginalCoinCore(interfaces::Node& node);
 
 public Q_SLOTS:
     void initialize();
@@ -170,13 +170,13 @@ private:
     interfaces::Node& m_node;
 };
 
-/** Main Bitcoin application object */
-class BitcoinApplication: public QApplication
+/** Main MyOriginalCoin application object */
+class MyOriginalCoinApplication: public QApplication
 {
     Q_OBJECT
 public:
-    explicit BitcoinApplication(interfaces::Node& node, int &argc, char **argv);
-    ~BitcoinApplication();
+    explicit MyOriginalCoinApplication(interfaces::Node& node, int &argc, char **argv);
+    ~MyOriginalCoinApplication();
 
 #ifdef ENABLE_WALLET
     /// Create payment server
@@ -199,7 +199,7 @@ public:
     /// Get process return value
     int getReturnValue() const { return returnValue; }
 
-    /// Get window identifier of QMainWindow (BitcoinGUI)
+    /// Get window identifier of QMainWindow (MyOriginalCoinGUI)
     WId getMainWinId() const;
 
     /// Setup platform style
@@ -224,7 +224,7 @@ private:
     interfaces::Node& m_node;
     OptionsModel *optionsModel;
     ClientModel *clientModel;
-    BitcoinGUI *window;
+    MyOriginalCoinGUI *window;
     QTimer *pollShutdownTimer;
 #ifdef ENABLE_WALLET
     PaymentServer* paymentServer;
@@ -240,18 +240,18 @@ private:
 
 #include <qt/bitcoin.moc>
 
-BitcoinCore::BitcoinCore(interfaces::Node& node) :
+MyOriginalCoinCore::MyOriginalCoinCore(interfaces::Node& node) :
     QObject(), m_node(node)
 {
 }
 
-void BitcoinCore::handleRunawayException(const std::exception *e)
+void MyOriginalCoinCore::handleRunawayException(const std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
     Q_EMIT runawayException(QString::fromStdString(m_node.getWarnings("gui")));
 }
 
-void BitcoinCore::initialize()
+void MyOriginalCoinCore::initialize()
 {
     try
     {
@@ -265,7 +265,7 @@ void BitcoinCore::initialize()
     }
 }
 
-void BitcoinCore::shutdown()
+void MyOriginalCoinCore::shutdown()
 {
     try
     {
@@ -280,7 +280,7 @@ void BitcoinCore::shutdown()
     }
 }
 
-BitcoinApplication::BitcoinApplication(interfaces::Node& node, int &argc, char **argv):
+MyOriginalCoinApplication::MyOriginalCoinApplication(interfaces::Node& node, int &argc, char **argv):
     QApplication(argc, argv),
     coreThread(0),
     m_node(node),
@@ -298,20 +298,20 @@ BitcoinApplication::BitcoinApplication(interfaces::Node& node, int &argc, char *
     setQuitOnLastWindowClosed(false);
 }
 
-void BitcoinApplication::setupPlatformStyle()
+void MyOriginalCoinApplication::setupPlatformStyle()
 {
     // UI per-platform customization
-    // This must be done inside the BitcoinApplication constructor, or after it, because
+    // This must be done inside the MyOriginalCoinApplication constructor, or after it, because
     // PlatformStyle::instantiate requires a QApplication
     std::string platformName;
-    platformName = gArgs.GetArg("-uiplatform", BitcoinGUI::DEFAULT_UIPLATFORM);
+    platformName = gArgs.GetArg("-uiplatform", MyOriginalCoinGUI::DEFAULT_UIPLATFORM);
     platformStyle = PlatformStyle::instantiate(QString::fromStdString(platformName));
     if (!platformStyle) // Fall back to "other" if specified name not found
         platformStyle = PlatformStyle::instantiate("other");
     assert(platformStyle);
 }
 
-BitcoinApplication::~BitcoinApplication()
+MyOriginalCoinApplication::~MyOriginalCoinApplication()
 {
     if(coreThread)
     {
@@ -334,57 +334,57 @@ BitcoinApplication::~BitcoinApplication()
 }
 
 #ifdef ENABLE_WALLET
-void BitcoinApplication::createPaymentServer()
+void MyOriginalCoinApplication::createPaymentServer()
 {
     paymentServer = new PaymentServer(this);
 }
 #endif
 
-void BitcoinApplication::createOptionsModel(bool resetSettings)
+void MyOriginalCoinApplication::createOptionsModel(bool resetSettings)
 {
     optionsModel = new OptionsModel(m_node, nullptr, resetSettings);
 }
 
-void BitcoinApplication::createWindow(const NetworkStyle *networkStyle)
+void MyOriginalCoinApplication::createWindow(const NetworkStyle *networkStyle)
 {
-    window = new BitcoinGUI(m_node, platformStyle, networkStyle, 0);
+    window = new MyOriginalCoinGUI(m_node, platformStyle, networkStyle, 0);
 
     pollShutdownTimer = new QTimer(window);
-    connect(pollShutdownTimer, &QTimer::timeout, window, &BitcoinGUI::detectShutdown);
+    connect(pollShutdownTimer, &QTimer::timeout, window, &MyOriginalCoinGUI::detectShutdown);
 }
 
-void BitcoinApplication::createSplashScreen(const NetworkStyle *networkStyle)
+void MyOriginalCoinApplication::createSplashScreen(const NetworkStyle *networkStyle)
 {
     SplashScreen *splash = new SplashScreen(m_node, 0, networkStyle);
     // We don't hold a direct pointer to the splash screen after creation, but the splash
     // screen will take care of deleting itself when slotFinish happens.
     splash->show();
-    connect(this, &BitcoinApplication::splashFinished, splash, &SplashScreen::slotFinish);
-    connect(this, &BitcoinApplication::requestedShutdown, splash, &QWidget::close);
+    connect(this, &MyOriginalCoinApplication::splashFinished, splash, &SplashScreen::slotFinish);
+    connect(this, &MyOriginalCoinApplication::requestedShutdown, splash, &QWidget::close);
 }
 
-void BitcoinApplication::startThread()
+void MyOriginalCoinApplication::startThread()
 {
     if(coreThread)
         return;
     coreThread = new QThread(this);
-    BitcoinCore *executor = new BitcoinCore(m_node);
+    MyOriginalCoinCore *executor = new MyOriginalCoinCore(m_node);
     executor->moveToThread(coreThread);
 
     /*  communication to and from thread */
-    connect(executor, &BitcoinCore::initializeResult, this, &BitcoinApplication::initializeResult);
-    connect(executor, &BitcoinCore::shutdownResult, this, &BitcoinApplication::shutdownResult);
-    connect(executor, &BitcoinCore::runawayException, this, &BitcoinApplication::handleRunawayException);
-    connect(this, &BitcoinApplication::requestedInitialize, executor, &BitcoinCore::initialize);
-    connect(this, &BitcoinApplication::requestedShutdown, executor, &BitcoinCore::shutdown);
+    connect(executor, &MyOriginalCoinCore::initializeResult, this, &MyOriginalCoinApplication::initializeResult);
+    connect(executor, &MyOriginalCoinCore::shutdownResult, this, &MyOriginalCoinApplication::shutdownResult);
+    connect(executor, &MyOriginalCoinCore::runawayException, this, &MyOriginalCoinApplication::handleRunawayException);
+    connect(this, &MyOriginalCoinApplication::requestedInitialize, executor, &MyOriginalCoinCore::initialize);
+    connect(this, &MyOriginalCoinApplication::requestedShutdown, executor, &MyOriginalCoinCore::shutdown);
     /*  make sure executor object is deleted in its own thread */
-    connect(this, &BitcoinApplication::stopThread, executor, &QObject::deleteLater);
-    connect(this, &BitcoinApplication::stopThread, coreThread, &QThread::quit);
+    connect(this, &MyOriginalCoinApplication::stopThread, executor, &QObject::deleteLater);
+    connect(this, &MyOriginalCoinApplication::stopThread, coreThread, &QThread::quit);
 
     coreThread->start();
 }
 
-void BitcoinApplication::parameterSetup()
+void MyOriginalCoinApplication::parameterSetup()
 {
     // Default printtoconsole to false for the GUI. GUI programs should not
     // print to the console unnecessarily.
@@ -394,14 +394,14 @@ void BitcoinApplication::parameterSetup()
     m_node.initParameterInteraction();
 }
 
-void BitcoinApplication::requestInitialize()
+void MyOriginalCoinApplication::requestInitialize()
 {
     qDebug() << __func__ << ": Requesting initialize";
     startThread();
     Q_EMIT requestedInitialize();
 }
 
-void BitcoinApplication::requestShutdown()
+void MyOriginalCoinApplication::requestShutdown()
 {
     // Show a simple window indicating shutdown status
     // Do this first as some of the steps may take some time below,
@@ -430,7 +430,7 @@ void BitcoinApplication::requestShutdown()
     Q_EMIT requestedShutdown();
 }
 
-void BitcoinApplication::addWallet(WalletModel* walletModel)
+void MyOriginalCoinApplication::addWallet(WalletModel* walletModel)
 {
 #ifdef ENABLE_WALLET
     window->addWallet(walletModel);
@@ -443,13 +443,13 @@ void BitcoinApplication::addWallet(WalletModel* walletModel)
     connect(walletModel, &WalletModel::coinsSent,
         paymentServer, &PaymentServer::fetchPaymentACK);
 #endif
-    connect(walletModel, &WalletModel::unload, this, &BitcoinApplication::removeWallet);
+    connect(walletModel, &WalletModel::unload, this, &MyOriginalCoinApplication::removeWallet);
 
     m_wallet_models.push_back(walletModel);
 #endif
 }
 
-void BitcoinApplication::removeWallet()
+void MyOriginalCoinApplication::removeWallet()
 {
 #ifdef ENABLE_WALLET
     WalletModel* walletModel = static_cast<WalletModel*>(sender());
@@ -459,7 +459,7 @@ void BitcoinApplication::removeWallet()
 #endif
 }
 
-void BitcoinApplication::initializeResult(bool success)
+void MyOriginalCoinApplication::initializeResult(bool success)
 {
     qDebug() << __func__ << ": Initialization result: " << success;
     // Set exit result.
@@ -505,8 +505,8 @@ void BitcoinApplication::initializeResult(bool success)
 #ifdef ENABLE_WALLET
         // Now that initialization/startup is done, process any command-line
         // bitcoin: URIs or payment requests:
-        connect(paymentServer, &PaymentServer::receivedPaymentRequest, window, &BitcoinGUI::handlePaymentRequest);
-        connect(window, &BitcoinGUI::receivedURI, paymentServer, &PaymentServer::handleURIOrFile);
+        connect(paymentServer, &PaymentServer::receivedPaymentRequest, window, &MyOriginalCoinGUI::handlePaymentRequest);
+        connect(window, &MyOriginalCoinGUI::receivedURI, paymentServer, &PaymentServer::handleURIOrFile);
         connect(paymentServer, &PaymentServer::message, [this](const QString& title, const QString& message, unsigned int style) {
             window->message(title, message, style);
         });
@@ -519,18 +519,18 @@ void BitcoinApplication::initializeResult(bool success)
     }
 }
 
-void BitcoinApplication::shutdownResult()
+void MyOriginalCoinApplication::shutdownResult()
 {
     quit(); // Exit second main loop invocation after shutdown finished
 }
 
-void BitcoinApplication::handleRunawayException(const QString &message)
+void MyOriginalCoinApplication::handleRunawayException(const QString &message)
 {
-    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Bitcoin can no longer continue safely and will quit.") + QString("\n\n") + message);
+    QMessageBox::critical(0, "Runaway exception", MyOriginalCoinGUI::tr("A fatal error occurred. MyOriginalCoin can no longer continue safely and will quit.") + QString("\n\n") + message);
     ::exit(EXIT_FAILURE);
 }
 
-WId BitcoinApplication::getMainWinId() const
+WId MyOriginalCoinApplication::getMainWinId() const
 {
     if (!window)
         return 0;
@@ -549,7 +549,7 @@ static void SetupUIArgs()
     gArgs.AddArg("-resetguisettings", "Reset all settings changed in the GUI", false, OptionsCategory::GUI);
     gArgs.AddArg("-rootcertificates=<file>", "Set SSL root certificates for payment request (default: -system-)", false, OptionsCategory::GUI);
     gArgs.AddArg("-splash", strprintf("Show splash screen on startup (default: %u)", DEFAULT_SPLASHSCREEN), false, OptionsCategory::GUI);
-    gArgs.AddArg("-uiplatform", strprintf("Select platform to customize UI for (one of windows, macosx, other; default: %s)", BitcoinGUI::DEFAULT_UIPLATFORM), true, OptionsCategory::GUI);
+    gArgs.AddArg("-uiplatform", strprintf("Select platform to customize UI for (one of windows, macosx, other; default: %s)", MyOriginalCoinGUI::DEFAULT_UIPLATFORM), true, OptionsCategory::GUI);
 }
 
 #ifndef BITCOIN_QT_TEST
@@ -569,7 +569,7 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(bitcoin);
     Q_INIT_RESOURCE(bitcoin_locale);
 
-    BitcoinApplication app(*node, argc, argv);
+    MyOriginalCoinApplication app(*node, argc, argv);
 #if QT_VERSION > 0x050100
     // Generate high-dpi pixmaps
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);

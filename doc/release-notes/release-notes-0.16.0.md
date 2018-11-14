@@ -1,25 +1,25 @@
-Bitcoin Core version 0.16.0 is now available from:
+MyOriginalCoin Core version 0.16.0 is now available from:
 
-  <https://bitcoincore.org/bin/bitcoin-core-0.16.0/>
+  <https://github.com/torunxxx001/bin/bitcoin-core-0.16.0/>
 
 This is a new major version release, including new features, various bugfixes
 and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/bitcoin/bitcoin/issues>
+  <https://github.com/torunxxx001/MyOriginalCoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://bitcoincore.org/en/list/announcements/join/>
+  <https://github.com/torunxxx001/en/list/announcements/join/>
 
 How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on Mac)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/MyOriginalCoin-Qt` (on Mac)
+or `myoriginalcoind`/`myoriginalcoin-qt` (on Linux).
 
 The first time you run version 0.15.0 or newer, your chainstate database will be converted to a
 new format, which will take anywhere from a few minutes to half an hour,
@@ -40,10 +40,10 @@ wallets that were created with older versions are not affected by this.
 Compatibility
 ==============
 
-Bitcoin Core is extensively tested on multiple operating systems using
+MyOriginalCoin Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later. Windows XP is not supported.
 
-Bitcoin Core should also work on most other Unix-like systems but is not
+MyOriginalCoin Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 Notable changes
@@ -54,7 +54,7 @@ Wallet changes
 
 ### Segwit Wallet
 
-Bitcoin Core 0.16.0 introduces full support for segwit in the wallet and user interfaces. A new `-addresstype` argument has been added, which supports `legacy`, `p2sh-segwit` (default), and `bech32` addresses. It controls what kind of addresses are produced by `getnewaddress`, `getaccountaddress`, and `createmultisigaddress`. A `-changetype` argument has also been added, with the same options, and by default equal to `-addresstype`, to control which kind of change is used.
+MyOriginalCoin Core 0.16.0 introduces full support for segwit in the wallet and user interfaces. A new `-addresstype` argument has been added, which supports `legacy`, `p2sh-segwit` (default), and `bech32` addresses. It controls what kind of addresses are produced by `getnewaddress`, `getaccountaddress`, and `createmultisigaddress`. A `-changetype` argument has also been added, with the same options, and by default equal to `-addresstype`, to control which kind of change is used.
 
 A new `address_type` parameter has been added to the `getnewaddress` and `addmultisigaddress` RPCs to specify which type of address to generate.
 A `change_type` argument has been added to the `fundrawtransaction` RPC to override the `-changetype` argument for specific transactions.
@@ -92,7 +92,7 @@ use the `replaceable` argument for individual transactions.
 
 ### Wallets directory configuration (`-walletdir`)
 
-Bitcoin Core now has more flexibility in where the wallets directory can be
+MyOriginalCoin Core now has more flexibility in where the wallets directory can be
 located. Previously wallet database files were stored at the top level of the
 bitcoin data directory. The behavior is now:
 
@@ -112,7 +112,7 @@ becomes unavailable during operation, funds may be lost.
 
 Build: Minimum GCC bumped to 4.8.x
 ------------------------------------
-The minimum version of the GCC compiler required to compile Bitcoin Core is now 4.8. No effort will be
+The minimum version of the GCC compiler required to compile MyOriginalCoin Core is now 4.8. No effort will be
 made to support older versions of GCC. See discussion in issue #11732 for more information.
 The minimum version for the Clang compiler is still 3.3. Other minimum dependency versions can be found in `doc/dependencies.md` in the repository.
 
@@ -127,7 +127,7 @@ The SHA256 hashing optimizations for architectures supporting SSE4, which lead t
 
 GUI changes
 -----------
-- Uses of "µBTC" in the GUI now also show the more colloquial term "bits", specified in BIP176.
+- Uses of "µMORGC" in the GUI now also show the more colloquial term "bits", specified in BIP176.
 - The option to reuse a previous address has now been removed. This was justified by the need to "resend" an invoice, but now that we have the request history, that need should be gone.
 - Support for searching by TXID has been added, rather than just address and label.
 - A "Use available balance" option has been added to the send coins dialog, to add the remaining available wallet balance to a transaction output.
@@ -191,9 +191,9 @@ The `validateaddress` RPC output has been extended with a few new fields, and su
 Other changed command-line options
 ----------------------------------
 - `-debuglogfile=<file>` can be used to specify an alternative debug logging file.
-- bitcoin-cli now has an `-stdinrpcpass` option to allow the RPC password to be read from standard input.
+- myoriginalcoin-cli now has an `-stdinrpcpass` option to allow the RPC password to be read from standard input.
 - The `-usehd` option has been removed.
-- bitcoin-cli now supports a new `-getinfo` flag which returns an output like that of the now-removed `getinfo` RPC.
+- myoriginalcoin-cli now supports a new `-getinfo` flag which returns an output like that of the now-removed `getinfo` RPC.
 
 Testing changes
 ----------------
@@ -268,7 +268,7 @@ Testing changes
 - #11923 `81c89e9` Remove unused fNoncriticalErrors variable from CWalletDB::FindWalletTx (PierreRochard)
 - #11726 `604e08c` Cleanups + nit fixes for walletdir PR (MeshCollider)
 - #11403 `d889c03` Segwit wallet support (sipa)
-- #11970 `b7450cd` Add test coverage for bitcoin-cli multiwallet calls (ryanofsky)
+- #11970 `b7450cd` Add test coverage for myoriginalcoin-cli multiwallet calls (ryanofsky)
 - #11904 `66e3af7` Add a lock to the wallet directory (MeshCollider)
 - #12101 `c7978be` Clamp walletpassphrase timeout to 2^30 seconds and check its bounds (achow101)
 - #12210 `17180fa` Deprecate addwitnessaddress (laanwj)
@@ -281,7 +281,7 @@ Testing changes
 ### RPC and other APIs
 - #11008 `3841aaf` Enable disablesafemode by default (gmaxwell)
 - #11050 `7ed57d3` Avoid treating null RPC arguments different from missing arguments (ryanofsky)
-- #10997 `affe927` Add option -stdinrpcpass to bitcoin-cli to allow RPC password to be read from standard input (jharvell)
+- #10997 `affe927` Add option -stdinrpcpass to myoriginalcoin-cli to allow RPC password to be read from standard input (jharvell)
 - #11179 `e0e3cbb` Push down safe mode checks (laanwj)
 - #11203 `d745b4c` add wtxid to mempool entry output (sdaftuar)
 - #11099 `bc561b4` Add savemempool RPC (greenaddress)
@@ -342,7 +342,7 @@ Testing changes
 - #11616 `8585bb8` Update ban-state in case of dirty-state during periodic sweep (jonasschnelli)
 - #11605 `f19ca12` Enable RBF by default in QT (Sjors)
 - #12074 `a1136f0` Optimizes boolean expression model && model->haveWatchOnly() (251Labs)
-- #12035 `eeb6d52` Change µBTC to bits (jb55)
+- #12035 `eeb6d52` Change µMORGC to bits (jb55)
 - #12092 `fd4ca17` Replaces numbered place marker %2 with %1 (251Labs)
 - #12173 `bbc91b7` Use flexible font size for QRCode image address (jonasschnelli)
 - #12211 `10d10d7` Avoid potential null dereference in ReceiveCoinsDialog constructor (ryanofsky)
@@ -376,7 +376,7 @@ Testing changes
 - #11903 `8f68fd2` [trivial] Add required package dependencies for depends cross compilation (jonasschnelli)
 - #12168 `45cf8a0`  #include sys/fcntl.h to just fcntl.h (without sys/) (jsarenik)
 - #12095 `3fa1ab4` Use BDB_LIBS/CFLAGS and pass --disable-replication (fanquake)
-- #11711 `6378e5c` bitcoin_qt.m4: Minor fixes and clean-ups (fanquake)
+- #11711 `6378e5c` myoriginalcoin_qt.m4: Minor fixes and clean-ups (fanquake)
 - #11989 `90d4104` .gitignore: add QT Creator artifacts (Sjors)
 - #11577 `c0ae864` Fix warnings (-Wsign-compare) when building with DEBUG_ADDRMAN (practicalswift)
 
@@ -578,8 +578,8 @@ Testing changes
 
 ### Miscellaneous
 - #11246 `777519b` github-merge: Coalesce git fetches (laanwj)
-- #10871 `c9a4aa8` Handle getinfo in bitcoin-cli w/ -getinfo (revival of #8843) (achow101)
-- #11419 `093074b` Utils: Fix launchctl not being able to stop bitcoind (OmeGak)
+- #10871 `c9a4aa8` Handle getinfo in myoriginalcoin-cli w/ -getinfo (revival of #8843) (achow101)
+- #11419 `093074b` Utils: Fix launchctl not being able to stop myoriginalcoind (OmeGak)
 - #11394 `6e4e98e` Perform a weaker subtree check in Travis (sipa)
 - #11702 `4122112` [build] Add a script for installing db4 (jamesob)
 - #11794 `dd49862` Prefix leveldb debug logging (laanwj)
@@ -596,7 +596,7 @@ Testing changes
 - #11951 `1fb34e0` Remove dead feeest-file read code for old versions (TheBlueMatt)
 - #11421 `9ccafb1` Merge current secp256k1 subtree (MarcoFalke)
 - #11573 `2631d55` [Util] Update tinyformat.h (fanquake)
-- #10529 `331352f` Improve bitcoind systemd service file (Flowdalic)
+- #10529 `331352f` Improve myoriginalcoind systemd service file (Flowdalic)
 - #11620 `70fec9e` [build] .gitignore: add background.tiff (Sjors)
 - #11558 `68e021e` Minimal code changes to allow msvc compilation (sipsorcery)
 - #11284 `10bee0d` Fix invalid memory access in CScript::operator+= (guidovranken, ajtowns)

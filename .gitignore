@@ -1,13 +1,13 @@
 *.tar.gz
 
 *.exe
-src/bitcoin
-src/bitcoind
-src/bitcoin-cli
-src/bitcoin-tx
+src/myoriginalcoin
+src/myoriginalcoind
+src/myoriginalcoin-cli
+src/myoriginalcoin-tx
 src/test/test_bitcoin
 src/test/test_bitcoin_fuzzy
-src/qt/test/test_bitcoin-qt
+src/qt/test/test_myoriginalcoin-qt
 
 # autoreconf
 Makefile.in
@@ -44,11 +44,11 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/bitcoin-qt.config
-src/qt/bitcoin-qt.creator
-src/qt/bitcoin-qt.creator.user
-src/qt/bitcoin-qt.files
-src/qt/bitcoin-qt.includes
+src/qt/myoriginalcoin-qt.config
+src/qt/myoriginalcoin-qt.creator
+src/qt/myoriginalcoin-qt.creator.user
+src/qt/myoriginalcoin-qt.files
+src/qt/myoriginalcoin-qt.includes
 
 .deps
 .dirstamp
@@ -80,13 +80,13 @@ src/qt/bitcoin-qt.includes
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-bitcoin-qt
+myoriginalcoin-qt
 Bitcoin-Qt.app
 background.tiff*
 
 # Unit-tests
 Makefile.test
-bitcoin-qt_test
+myoriginalcoin-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -119,3 +119,5 @@ contrib/devtools/split-debug.sh
 
 # Output from running db4 installation
 db4/
+
+make_genesis*

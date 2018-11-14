@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2018 The Bitcoin Core developers
+# Copyright (c) 2014-2018 The MyOriginalCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the importmulti RPC."""
 
 from test_framework import script
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import MyOriginalCoinTestFramework
 from test_framework.util import (
     assert_equal,
     assert_greater_than,
@@ -20,7 +20,7 @@ from test_framework.script import (
 )
 from test_framework.messages import sha256
 
-class ImportMultiTest(BitcoinTestFramework):
+class ImportMultiTest(MyOriginalCoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.extra_args = [["-addresstype=legacy"], ["-addresstype=legacy"]]
@@ -54,7 +54,7 @@ class ImportMultiTest(BitcoinTestFramework):
 
         # RPC importmulti -----------------------------------------------
 
-        # Bitcoin Address
+        # MyOriginalCoin Address
         self.log.info("Should import an address")
         address = self.nodes[0].getaddressinfo(self.nodes[0].getnewaddress())
         result = self.nodes[1].importmulti([{

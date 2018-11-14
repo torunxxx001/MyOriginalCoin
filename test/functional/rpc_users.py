@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Copyright (c) 2015-2018 The Bitcoin Core developers
+# Copyright (c) 2015-2018 The MyOriginalCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test multiple RPC users."""
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import MyOriginalCoinTestFramework
 from test_framework.util import (
     assert_equal,
     get_datadir_path,
@@ -21,7 +21,7 @@ import configparser
 import sys
 
 
-class HTTPBasicsTest(BitcoinTestFramework):
+class HTTPBasicsTest(MyOriginalCoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 
