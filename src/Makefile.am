@@ -461,7 +461,7 @@ myoriginalcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 myoriginalcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-myoriginalcoind_SOURCES += myoriginalcoind-res.rc
+myoriginalcoind_SOURCES += bitcoind-res.rc
 endif
 
 myoriginalcoind_LDADD = \
@@ -488,7 +488,7 @@ myoriginalcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 myoriginalcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-myoriginalcoin_cli_SOURCES += myoriginalcoin-cli-res.rc
+myoriginalcoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
 myoriginalcoin_cli_LDADD = \
@@ -507,7 +507,7 @@ myoriginalcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 myoriginalcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-myoriginalcoin_tx_SOURCES += myoriginalcoin-tx-res.rc
+myoriginalcoin_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
 myoriginalcoin_tx_LDADD = \

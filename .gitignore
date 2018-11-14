@@ -120,4 +120,5 @@ contrib/devtools/split-debug.sh
 # Output from running db4 installation
 db4/
 
-make_genesis*
+make_genesis
+get_keys
